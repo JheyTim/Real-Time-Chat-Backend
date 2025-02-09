@@ -21,25 +21,12 @@ passport.use(
             displayName: profile.displayName,
             avatarUrl: profile.photos[0].value,
           });
-
-          return done(null, user);
         }
+
+        return done(null, user);
       } catch (error) {
         return done(error, null);
       }
     }
   )
 );
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (error) {
-    done(error, null);
-  }
-});
