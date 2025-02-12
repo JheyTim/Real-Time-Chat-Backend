@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const passport = require('passport');
-require('dotenv').config();
-
+const helmet = require('helmet');
 const cors = require('cors');
+const rateLimiter = require('./middlewares/rateLimiter');
+
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const chatRoutes = require('./routes/chatRoutes');
@@ -20,9 +22,8 @@ app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
 
-// Custom middlewares like rate limiter can go here
-// const rateLimiter = require('./middlewares/rateLimiter');
-// app.use('/api', rateLimiter);
+app.use(helmet());
+app.use('/api', rateLimiter);
 
 // Routes
 app.use('/api/auth', authRoutes);
