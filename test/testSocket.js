@@ -4,7 +4,7 @@ const SERVER_URL = 'http://localhost:3000';
 const socket = io(SERVER_URL, {
   auth: {
     token:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YThmY2I2ZmQ2ZWE4NmY4YzkyZGQ5MSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzM5MTI3OTkwLCJleHAiOjE3MzkxMzE1OTB9.qZvb6qfbGbiyvs_CqgM2utR-kKeHyTKFaWeP5Zi6meI', // Acquire from a successful login
+      '', // Acquire from a successful login
   },
 });
 
