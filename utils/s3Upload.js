@@ -1,3 +1,4 @@
+const { PutObjectCommand } = require('@aws-sdk/client-s3');
 const s3Client = require('../config/s3Client');
 const { v4: uuidv4 } = require('uuid');
 
